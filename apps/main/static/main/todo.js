@@ -27,6 +27,16 @@ var todo = new Vue({
                     console.log(err)
                 })
         },
+
+
+        add_todo: function() {
+
+        },
+
+
+        remove_todo: function() {
+
+        },
     },
 });
 

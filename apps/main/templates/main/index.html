@@ -14,12 +14,6 @@
             <h1>Todo stuff</h1>
         </header>
 
-        <ul class="todo-list">
-            {% for todo in object_list %}
-            <li>{{ todo.text }}</li>
-            {% endfor %}
-        </ul>
-
         <div id="todo-app">
              <ul class="todo-list">
                  <li v-for="todo in todos">
