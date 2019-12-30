@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    background-color: #eeeeee;
+    margin: 0px auto;
+}
+
+header {
+    text-align: center;
+}
+
+.todo-list {
+    list-style-type: none;
+}
+
+.tile {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.remove {
+    float: right;
+}

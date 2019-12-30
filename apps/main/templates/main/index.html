@@ -1,16 +1,39 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html>
     <head>
+        <!-- development version, includes helpful console warnings -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <link rel="stylesheet" href="{% static "main/todo.css" %}">
     </head>
+
     <body>
         <header>
             <h1>Todo stuff</h1>
         </header>
 
-        <ul>
+        <ul class="todo-list">
             {% for todo in object_list %}
             <li>{{ todo.text }}</li>
             {% endfor %}
         </ul>
+
+        <div id="todo-app">
+             <ul class="todo-list">
+                 <li v-for="todo in todos">
+                     <div class="tile">
+                        <input type="checkbox"/>
+                        [[ todo.text ]]
+                        <span class="remove">x</span><!-- make link -->
+                     </div>
+                 </li>
+                 <li v-for="todo in test_todos">
+                    [[ todo.text ]]
+                 </li>
+             </ul>
+         </div>
+    <script src="{% static "main/todo.js" %}"></script>
     </body>
 </html>
