@@ -8,26 +8,30 @@
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <link rel="stylesheet" href="{% static "main/todo.css" %}">
     </head>
-
     <body>
         <header>
-            <h1>Todo stuff</h1>
+            <h1>Todos</h1>
         </header>
 
         <div id="todo-app">
              <ul class="todo-list">
+                 <li class="tile input">
+                    <form v-on:submit.prevent="add_todo" class="add">
+                        {% csrf_token %}
+                        <input class="new-text" placeholder="Enter new todo" v-model="new_todo.text">
+                        <button type="submit">+</button>
+                    </form>
+                 </li>
                  <li v-for="todo in todos">
-                     <div class="tile">
-                        <input type="checkbox"/>
+                     <div class="tile" v-bind:class="{ completed: todo.is_completed }">
+                        <input type="checkbox"
+                            v-bind:checked="todo.is_completed"
+                            v-on:click="toggle_completed(todo.id)"
+                            onclick="return false;"/>
                         [[ todo.text ]]
-                        <span class="remove">x</span><!-- make link -->
+                        <a href="" class="remove" v-on:click="remove_todo(todo.id)" onclick="return false">x</a>
                      </div>
                  </li>
-                 <!--
-                 <li v-for="todo in test_todos">
-                    [[ todo.text ]]
-                 </li>
-                 -->
              </ul>
          </div>
     <script src="{% static "main/todo.js" %}"></script>
